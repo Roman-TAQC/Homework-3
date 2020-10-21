@@ -4,28 +4,30 @@ import java.io.InputStreamReader;
 
 public class Homework {
     public static void main(String[] args) throws IOException {
-        double c1, c2, c3;
-        int t1, t2, t3;
-        double totalCost1, totalCost2, totalCost3;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("What is the cost per minute for the first call?");
-        c1 = Double.parseDouble(br.readLine());
-        System.out.println("What is the cost per minute for the second call?");
-        c2 = Double.parseDouble(br.readLine());
-        System.out.println("What is the cost per minute for the third call?");
-        c3 = Double.parseDouble(br.readLine());
-        System.out.println("How long did the first call last in minutes?");
-        t1 = Integer.parseInt(br.readLine());
-        System.out.println("How long did the second call last in minutes?");
-        t2 = Integer.parseInt(br.readLine());
-        System.out.println("How long did the third call last in minutes?");
-        t3 = Integer.parseInt(br.readLine());
-        totalCost1 = c1 * t1;
-        totalCost2 = c2 * t2;
-        totalCost3 = c3 * t3;
-        System.out.printf("Total cost of the first call is $%.2f\n", totalCost1);
-        System.out.printf("Total cost of the second call is $%.2f\n", totalCost2);
-        System.out.printf("Total cost of the third call is $%.2f\n", totalCost3);
-        System.out.printf("Total cost of all three calls combined is $%.2f\n", totalCost1 + totalCost2 + totalCost3);
+        int a, b, c, x, y;
+        boolean flag = false;
+        System.out.println("Enter value of a:");
+        a = Integer.parseInt(br.readLine());
+        System.out.println("Enter value of b:");
+        b = Integer.parseInt(br.readLine());
+        System.out.println("Enter value of c:");
+        c = Integer.parseInt(br.readLine());
+        System.out.println("Enter value of x:");
+        x = Integer.parseInt(br.readLine());
+        System.out.println("Enter value of y:");
+        y = Integer.parseInt(br.readLine());
+
+        if(a<=x && b<=y || a<=y && b<=x)
+            flag = true;
+        if(a<=x && c<=y || a<=y && c<=x)
+            flag = true;
+        if(b<=x && c<=y || b<=y && c<=x)
+            flag = true;
+
+        if (flag)
+            System.out.println("GREAT! The brick is small enough to fit in!");
+        else
+            System.out.println("Sorry the brick is too big, not today :(");
+        }
     }
-}
